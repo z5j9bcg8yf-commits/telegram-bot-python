@@ -23,17 +23,7 @@ try:
         """
         bot.reply_to(message, "Hello! I'm a simple Telegram bot.")
 
-    @bot.message_handler(func=lambda msg: True)
-    def echo_all(message):
-        """
-        Echo all incoming text messages back to the user.
-
-        Args:
-            message (telebot.types.Message): The message object.
-        """
-        bot.reply_to(message, message.text)
-
-    # Remove webhook to avoid conflicts with polling
+    
     bot.delete_webhook(drop_pending_updates=True)
     bot.polling()
 
